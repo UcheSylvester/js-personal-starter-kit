@@ -4,8 +4,8 @@ import jsdom from 'jsdom';
 // import the file management system to be able to select the DOM elements
 import fs from 'fs';
 
-describe('my first test', () => {
-	it('should pass', () => {
+describe('index.html', () => {
+	it('should have h1 that says Users', () => {
 		expect(true).to.equal(true);
 	})
 })
@@ -16,7 +16,7 @@ describe('check for hello world', () => {
 		const index = fs.readFileSync('./src/index.html', 'utf-8');
 		jsdom.env(index, function(err, window) {
 			const h1 = window.document.querySelector('h1');
-			expect(h1.innerHTML).to.equal('Hello World!');
+			expect(h1.innerHTML).to.equal('Users');
 			done()
 			window.close()
 		})
