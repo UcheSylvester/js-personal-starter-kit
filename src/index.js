@@ -1,5 +1,6 @@
 import './styles.css';
-import {getUsers} from './api/userApi.js';
+import {getUsers, deleteUser} from './api/userApi';
+// import {deleteUser} from './api/userApi'
 
 
 /* eslint-disable no-console */
@@ -18,5 +19,23 @@ getUsers().then(result => {
 		</tr>`
 	});
 
-	document.querySelector('#users').innerHTML = userBody;
+	window.document.querySelector('#users').innerHTML = userBody;
+
+	const deleteLinks = Array.from (document.querySelectorAll('.deleteUser'));
+	console.log(deleteLinks)
+
+	deleteLinks.forEach(link => {
+		link.addEventListener('click', event => {
+			event.preventDefault();
+
+			const element = event.target;
+			console.log(element)
+			deleteUser(element.attributes['data-id'].value);
+			const row = element.parentNode.parentNode;
+			console.log(row);
+			row.parentNode.removeChild(row);
+
+		})
+	})
+
 })
