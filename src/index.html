@@ -5,8 +5,17 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Javascript Development Environment</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
-	<!-- <script src="main.js"></script> -->
+
+	<% if (htmlWebpackPlugin.options.trackJsToken) { %>
+	<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+	<script>
+		window.TrackJS && TrackJS.install({
+			token: '<%=htmlWebpackPlugin.options.trackJSToken%>'
+			// for more configuration options, see https://docs.trackjs.com
+		});
+	</script>
+	<% } %>
+
 </head>
 <body>
 

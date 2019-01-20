@@ -43,12 +43,16 @@ export default {
 				minifyCSS: true,
 				minifyURLs: true
 			},
-			inject: true
+			inject: true,
+
+			trackJsToken: "61da20d4a2ef4230870b0538954e4a5c"
+
 		}),
+
 		// Eliminate any duplicate package
-		// new webpack.optimize.deDupePlugin(),
+		// new webpack.optimize.DeDupePlugin(),
 		// Minify JS
-		// new webpack.optimize.uglifyJsPlugin()
+		// new webpack.optimize.UglifyJsPlugin()
 	],
   module: {
     loaders: [
